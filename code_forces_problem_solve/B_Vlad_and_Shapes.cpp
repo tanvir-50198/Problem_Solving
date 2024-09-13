@@ -1,40 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main()
-{
+int main(){
+
     int t;
-    cin >> t;
-    while(t--)
+    cin>>t;
+   while(t--){
+    int n;
+    cin>>n;
+    vector<string>v;
+    int cnt=-1,cnt2=0;
+    for(int i=0;i<n;i++)
     {
-        int n;
-        cin>>n;
-        int a[n][n];
-        for(int i=0;i<n;i++)
+        string s;
+        cin>>s;
+        for(int j=0;j<n;j++)
         {
-            for(int j=0;j<n;j++)
+            if(s[j]=='1')
             {
-                cin>>a[i][j];
+                if(cnt==j)
+                {
+                    cnt2++;
+
+                }
+                else
+                {
+                    cnt=j;
+                    break;
+                }
 
             }
 
         }
-        bool flag=false;
-        for(int i=0,j=n;i<n;i++,j--)
-        {
-               if(a[i][j]==1&&a[i][j]==a[j][i])
-                {
-                    flag=true;
-                    break;
-                }
-                else {
-                flag=false;
-                }
-
-        }
-        if(flag=true)cout<<"SQUARE"<<endl;
-        else cout<<"TRIANGLE"<<endl;
-
+    }
+            if(cnt2>0)cout<<"SQUARE"<<endl;
+            else cout<<"TRIANGLE"<<endl;
 
     }
-
 }
+
